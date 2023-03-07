@@ -1,11 +1,9 @@
-import Header from "./component/Header";
-import Login from "./component/LoginModal";
+import React from "react";
+import Dashboard from "./pages/Dashboard";
+import "./index.css";
 function App() {
   return (
-    <>
-    <Header/>
-    <Login></Login>
-    </>
+  <Dashboard/>
   );
 }
 
