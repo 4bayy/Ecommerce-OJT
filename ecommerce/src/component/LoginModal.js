@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 function Login({show,setShow}) {
 //   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  
 
   return (
     <>
