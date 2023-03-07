@@ -1,11 +1,10 @@
 import ProductCard from '../components/card/ProductCard';
 import './dashboard.css';
+import Header from '../component/Header'
 function Dashboard() {
     return (
         <div>
-            <div id="header-section">
-                <h2>header</h2>
-            </div>
+            <Header/>
             <div id="dashboard-home">
                 <div class="topnav">  
                 <input type="text" placeholder="Search.." className='form-control mb-2 w-50 '
@@ -17,7 +16,7 @@ function Dashboard() {
                         <h3 id="categories">Jewellery</h3>
                         <h3 id="categories">Mens Clothing</h3>
                         <h3 id="categories">Women Clothing</h3>
-                    </div>
+                    </div>cd 
                 </div>
             </div>
             <div id="dashboard-card" style={{maxWidth:"80%",margin:"0 auto"}}>
