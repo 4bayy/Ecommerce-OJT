@@ -27,16 +27,6 @@ function Dashboard() {
                 console.log(err);
             });
     }, []);
-    // const filterSearch = (event) => {
-    //     setQuery(event.target.value);
-    //     console.log("Query"+query);
-    //     updatedList=updatedList.filter((item)=>{
-    //         return item.toLowerCase().indexOf(query.toLowerCase()) !==-1;
-    //     });
-    //     //Render with updated values.
-    //     setFilteredList(updatedList);
-    // };
-
     return (
         <div>
             <Header />

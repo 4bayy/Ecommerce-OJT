@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductDetail from '../../pages/productdetail/ProductDetail';
 import {Link, useNavigate} from "react-router-dom";
 import { ToastContainer,Toast, toast } from"react-toastify";
@@ -7,6 +7,8 @@ import Login from '../../component/LoginModal';
 
 function ProductCard(props) {
     const navigate=useNavigate();
+    const [show,setShow] = useState(false);
+
     const notify=()=>toast.success(' Added to Cart Succesfully', {
         position: "top-right",
         autoClose: 5000,
@@ -25,7 +27,7 @@ function ProductCard(props) {
         }
         else{
             console.log("Need to Login");
-            navigate(`/login`);
+            setShow(true);
         }
     }
     return (
@@ -50,6 +52,7 @@ function ProductCard(props) {
                         Add to Cart
                     </button>
                     <ToastContainer limit={1}></ToastContainer>
+                    <Login show={show} setShow={setShow}/>
                 </div>
             </div>
         </div>

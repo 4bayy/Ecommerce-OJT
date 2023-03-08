@@ -6,6 +6,10 @@ import { useState } from 'react';
   
 function Header() {
     const [show, setShow] = useState(false);
+    const logOut=()=>{
+      console.log(localStorage.token);
+      localStorage.clear();
+    }
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -21,6 +25,7 @@ function Header() {
           </Navbar.Brand>
           <Nav className="justify-content-end">
             <Nav.Link onClick={()=>{setShow(true)}}>Login</Nav.Link>
+            <Nav.Link onClick={()=>{logOut()}}>Logout</Nav.Link>
             <Nav.Link href="#features">Add product</Nav.Link>
             
           </Nav>
