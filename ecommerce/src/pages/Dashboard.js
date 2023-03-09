@@ -46,6 +46,7 @@ function Dashboard() {
   return (
     <div>
       <Header />
+        <div>h</div>
       <div id="dashboard-home">
         <div class="topnav">
           <input
@@ -111,6 +112,7 @@ function Dashboard() {
         </div>
       </div>
       <div id="dashboard-card" style={{ maxWidth: "80%", margin: "0 auto" }}>
+        <h2>Heading</h2>
         {filteredList.map((i, idx) => (
           <div style={{ marginTop: "30px", width: "100%" }}>
             <ProductCard

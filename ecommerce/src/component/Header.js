@@ -23,12 +23,19 @@ function Header() {
               height="40"
               className="d-inline-block align-top"
               alt="Logo"
+              style={{borderRadius:"50%"}}
             />
           </Navbar.Brand>
           <Nav className="justify-content-end">
-            <Nav.Link onClick={()=>{setShow(true)}}>Login</Nav.Link>
+            <Nav.Link onClick={()=>{setShow(true)}}
+            style={{color:"white",fontWeight:"bold",backgroundColor:"#01AFB6",
+            borderRadius:"10px"
+          }}
+            >Login</Nav.Link>
             <Nav.Link onClick={()=>{logOut()}}>Logout</Nav.Link>
-            <Nav.Link onClick={()=>{setShowProduct(true)}}>Add product</Nav.Link>
+            <Nav.Link onClick={()=>{setShowProduct(true)}}
+              style={{color:"white"}}
+            >Add product</Nav.Link>
             
           </Nav>
         </Container>

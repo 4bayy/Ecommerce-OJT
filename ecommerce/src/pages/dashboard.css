@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     background-color: beige;
-    padding: 10px;
+    padding: 15vh;
 }
 .topnav
 {
@@ -38,7 +38,13 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
     justify-content: space-between;
+
     /* align-items: center; */
+}
+#categories:hover
+{
+    cursor: pointer;
+    color: red;
 }
 #cards
 {
