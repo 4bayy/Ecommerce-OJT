@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ProductDetail from '../../pages/productdetail/ProductDetail';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, Toast, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Login from '../../component/LoginModal';
 
 function ProductCard(props) {
@@ -30,8 +29,7 @@ function ProductCard(props) {
         }
     };
     return (
-        <div>
-            <div className="card" style={{ width: '30%' }}>
+            <div className="card">
                 <img
                     className="card-img-top "
                     src={props.image}
@@ -58,7 +56,6 @@ function ProductCard(props) {
                     <Login show={show} setShow={setShow} />
                 </div>
             </div>
-        </div>
     );
 }
 export default ProductCard;
