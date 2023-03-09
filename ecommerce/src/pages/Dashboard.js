@@ -139,7 +139,6 @@ function Dashboard() {
 
         ))}
       </div>
-      <ProductDetail></ProductDetail>
     </div>
   );
 }
