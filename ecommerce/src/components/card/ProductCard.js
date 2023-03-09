@@ -32,7 +32,7 @@ function ProductCard(props) {
     }
     return (
         <div>
-            <div className="card" style={{width:"30%"}}>
+            <div className="card" style={{maxWidth:"50%"}}>
                 <img className="card-img-top" src={props.image} alt="Cardimagecap"  style={{height:"100px"}}/>
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
