@@ -5,6 +5,7 @@ import Login from "./LoginModal";
 import { useState } from "react";
 import AddProduct from "./AddProductModal";
 import axios from "axios";
+import { BsFillCartFill } from "react-icons/bs";
 function Header() {
   const [show, setShow] = useState(false);
   const [showProduct, setShowProduct] = useState(false);
@@ -35,7 +36,10 @@ function Header() {
           </Navbar.Brand>
           <Nav className="justify-content-end">
             {localStorage.token ? (
+              <div style ={{display:"flex"}}>
               <Nav.Link onClick= {()=> logOut()}>Logout</Nav.Link>
+              <Nav.Link ><BsFillCartFill></BsFillCartFill></Nav.Link>
+              </div>
             ) : (
               <Nav.Link onClick={() => setShow(true)}>Login</Nav.Link>
             )}
