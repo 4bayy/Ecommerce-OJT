@@ -8,10 +8,14 @@ import women from "../images/woman.png";
 import { base_url } from "../Constants";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ProductDetail from "./productdetail/ProductDetail";
+import { ToastContainer, Toast, toast } from 'react-toastify';
 
 function Dashboard() {
   const [productdata, setProductData] = useState([]);
   const [filteredList, setFilteredList] = new useState(productdata);
+
+  //add if else
   useEffect(() => {
     axios
       .get(base_url + "products")
@@ -24,6 +28,8 @@ function Dashboard() {
         console.log(err);
       });
   }, []);
+
+
   const filterSearch = (event) => {
     const query = event.target.value;
     const filteredData = productdata.filter((item) => {
@@ -34,17 +40,23 @@ function Dashboard() {
 
   const getCategoryWise = (category) => {
     axios
-      .get(base_url + `products/category/${category}`)
+      .get(base_url + "products/category/" + category)
       .then((res) => {
         console.log(res.data);
         setFilteredList(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error('something went wrong', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          theme: 'light'
+      });
       });
   };
   return (
     <div>
+      <ToastContainer />
       <Header />
       <div id="dashboard-home"  style={{ marginTop:"60px"}}>
         <div class="topnav">
@@ -58,6 +70,7 @@ function Dashboard() {
         </div>
         <div id="category-list">
           <div id="category-container " style={{ display: "flex" }}>
+            {/* Need only one  and map */}
             <div className="category-components " onClick={() => getCategoryWise("electronics")}>
               <img
                 src={electronics}
@@ -111,7 +124,7 @@ function Dashboard() {
         </div>
       </div>
       <div id="dashboard-card" style={{ maxWidth: "80%", margin: "0 auto" }}>
-        <h2>Heading</h2>
+        {/* <h2 id="dashboard-heading" style={{textAlign:"center",margin:"50px"}}>New Arrivals 2023</h2> */}
         {filteredList.map((i, idx) => (
           <div  className="product-card-container">
             <ProductCard
@@ -126,6 +139,7 @@ function Dashboard() {
 
         ))}
       </div>
+      <ProductDetail></ProductDetail>
     </div>
   );
 }
