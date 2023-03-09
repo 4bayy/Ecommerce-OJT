@@ -7,6 +7,21 @@ import { base_url } from '../../Constants';
 
 
 function ProductDetail() {
+    const id =useParams();
+    console.log(id);
+    const[productDetail,setProductDetail]=useState();
+    console.log("api not loading");
+    console.log(id);
+    useEffect(()=>{
+        axios.get(`https://fakestoreapi.com/products/1`)
+        .then((res)=>{
+            console.log(res.data);
+            setProductDetail(res.data)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    },[])
     
     return (
         <div>
