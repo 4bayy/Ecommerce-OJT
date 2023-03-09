@@ -11,8 +11,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: beige;
-    padding: 15vh;
+    background-color: #2F3C7E;
+    padding: 10px;
 }
 .topnav
 {
@@ -20,7 +20,7 @@
 }
 #category-list
 {
-    background-color: aquamarine;
+    background-color:#FBEAEB;
    
     border-radius: 10px;
     padding: 20px;
@@ -50,8 +50,27 @@
 {
     margin-top: 10px;
 }
-/* #dashboard-card
-{
+
+  .category-components:hover {
+    top: -10px;
+    left: -10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  
+  /* #dashboard-card {
     display: flex;
-     flex-wrap: wrap; 
-} */
+    flex-wrap: wrap;
+    justify-content: space-between;
+  } */
+/* .card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}   */
+.product-card-container {
+    flex: 0 0 calc(33.33% - 20px);
+    min-width: 200px;
+    margin: 10px;
+  }
+  
