@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { base_url } from '../Constants';
-import { ToastContainer,Toast, toast } from"react-toastify";
+import { ToastContainer, Toast, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Login({ show, setShow }) {
@@ -15,26 +15,25 @@ function Login({ show, setShow }) {
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
     const checkLogin = () => {
-      if (username && password) 
-      {
+        if (username && password) {
             axios
                 .post(base_url + 'auth/login', {
-                    username:username,
-                    password: password,
+                    username: username,
+                    password: password
                 })
                 .then((res) => {
-                  if(res.status && res.status===200 ){
-                    setToken(res.data.token);
-                    localStorage.setItem("token",res.data.token);
-                    handleClose();    
-                    alert("Logged Succesfully");
-                  }
-                }).catch((err)=>{
-                  alert("login failed");
+                    if (res.data && res.data.token) {
+                        setToken(res.data.token);
+                        localStorage.setItem('token', res.data.token);
+                        handleClose();
+                        alert('Logged Succesfully');
+                    }
+                })
+                .catch((err) => {
+                    alert('login failed');
                 });
-                console.log(token);
-            
-        } 
+            console.log(token);
+        }
     };
     return (
         <>
@@ -54,7 +53,9 @@ function Login({ show, setShow }) {
                                 placeholder="Type Username"
                                 autoFocus
                                 name={username}
-                                onChange={(e)=>{setUsername(e.target.value)}}
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                }}
                             />
                         </Form.Group>
                         <Form.Group
@@ -66,7 +67,9 @@ function Login({ show, setShow }) {
                                 type="password"
                                 placeholder="Password"
                                 name={password}
-                                onChange={(e)=>{setPassword(e.target.value)}}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                }}
                             />
                         </Form.Group>
                     </Form>
