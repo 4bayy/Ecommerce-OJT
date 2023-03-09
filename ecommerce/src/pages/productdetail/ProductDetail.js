@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { base_url } from '../../Constants';
 
+
 function ProductDetail() {
     
     return (
