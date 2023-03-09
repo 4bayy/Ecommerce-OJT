@@ -46,11 +46,11 @@ function Dashboard() {
   return (
     <div>
       <Header />
-      <div id="dashboard-home">
+      <div id="dashboard-home"  style={{ marginTop:"60px"}}>
         <div class="topnav">
           <input
             type="text"
-            placeholder="Search.."
+            placeholder="Search jewelleries,watches,bags,tops..."
             className="form-control mb-2 w-50 "
             style={{ margin: "0 auto" }}
             onChange={filterSearch}
@@ -58,7 +58,7 @@ function Dashboard() {
         </div>
         <div id="category-list">
           <div id="category-container " style={{ display: "flex" }}>
-            <div className="category-components ">
+            <div className="category-components " onClick={() => getCategoryWise("electronics")}>
               <img
                 src={electronics}
                 style={{ width: "30px", marginLeft: "40px" }}
@@ -66,22 +66,22 @@ function Dashboard() {
               ></img>
               <h4
                 id="categories"
-                onClick={() => getCategoryWise("electronics")}
+                
               >
                 Electronics
               </h4>
             </div>
-            <div className="category-components ">
+            <div className="category-components " onClick={() => getCategoryWise("jewelery")}>
               <img
                 src={jewelry}
                 alt="imagehere"
                 style={{ width: "30px", marginLeft: "40px" }}
               ></img>
-              <h2 id="categories" onClick={() => getCategoryWise("jewelery")}>
+              <h2 id="categories" >
                 Jewellery
               </h2>
             </div>
-            <div className="category-components">
+            <div className="category-components" onClick={() => getCategoryWise("men's clothing")}>
               <img
                 src={man}
                 alt="imagehere"
@@ -89,12 +89,12 @@ function Dashboard() {
               ></img>
               <h3
                 id="categories"
-                onClick={() => getCategoryWise("men's clothing")}
+                
               >
                 Mens Clothing
               </h3>
             </div>
-            <div className="category-components">
+            <div className="category-components"  onClick={() => getCategoryWise("women's clothing")}>
               <img
                 src={women}
                 alt="imagehere"
@@ -102,7 +102,7 @@ function Dashboard() {
               ></img>
               <h4
                 id="categories"
-                onClick={() => getCategoryWise("women's clothing")}
+               
               >
                 Women Clothing
               </h4>
@@ -112,7 +112,7 @@ function Dashboard() {
       </div>
       <div id="dashboard-card" style={{ maxWidth: "80%", margin: "0 auto" }}>
         {filteredList.map((i, idx) => (
-          <div style={{ marginTop: "30px", width: "100%" }}>
+          <div  className="product-card-container">
             <ProductCard
               id={i.id}
               title={i.title}
@@ -122,6 +122,7 @@ function Dashboard() {
               rating={i.rating.rate}
             ></ProductCard>
           </div>
+
         ))}
       </div>
     </div>
