@@ -30,6 +30,7 @@ function Header() {
               height="40"
               className="d-inline-block align-top"
               alt="Logo"
+              style={{borderRadius:"50%"}}
             />
           </Navbar.Brand>
           <Nav className="justify-content-end">

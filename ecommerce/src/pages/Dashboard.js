@@ -111,6 +111,7 @@ function Dashboard() {
         </div>
       </div>
       <div id="dashboard-card" style={{ maxWidth: "80%", margin: "0 auto" }}>
+        <h2>Heading</h2>
         {filteredList.map((i, idx) => (
           <div  className="product-card-container">
             <ProductCard
