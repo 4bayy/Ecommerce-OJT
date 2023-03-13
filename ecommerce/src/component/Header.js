@@ -7,6 +7,7 @@ import AddProduct from "./AddProductModal";
 import { ToastContainer, Toast, toast } from "react-toastify";
 import { BsCart4} from 'react-icons/bs';
 import axios from "axios";
+import { BsFillCartFill } from "react-icons/bs";
 function Header() {
   const [show, setShow] = useState(false);
   const [showProduct, setShowProduct] = useState(false);
@@ -46,10 +47,9 @@ function Header() {
           <Nav className="justify-content-end">
           <Nav.Link onClick={() => checkLogin()}>Add product</Nav.Link>
             {localStorage.token ? (
-              <div  style={{display:"flex"}}>
-                <Nav.Link ><BsCart4/></Nav.Link>
+              <div style ={{display:"flex"}}>
               <Nav.Link onClick= {()=> logOut()}>Logout</Nav.Link>
-              
+              <Nav.Link ><BsFillCartFill></BsFillCartFill></Nav.Link>
               </div>
             ) : (
               <Nav.Link onClick={() => setShow(true)}>Login</Nav.Link>

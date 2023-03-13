@@ -107,7 +107,6 @@ function Dashboard() {
           </div>
         ))):(<h1 style={{ textAlign: "center", marginTop: "50px" }}>Not Found!</h1>)}
       </div>
-      
     </div>
   );
 }
