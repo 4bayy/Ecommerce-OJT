@@ -1,3 +1,5 @@
+import "./cartpage.css";
+
 function CartPage() {
     return (
         <div>
@@ -258,9 +260,8 @@ function CartPage() {
                                 class="btn btn-primary btn-block d-flex justify-content-between mt-3"
                                 type="button"
                             >
-                                <span>$3020.00</span>
                                 <span>
-                                    Checkout
+                                    PayNow 
                                     <i class="fa fa-long-arrow-right ml-1"></i>
                                 </span>
                             </button>
@@ -271,3 +272,4 @@ function CartPage() {
         </div>
     );
 }
+export default CartPage;
