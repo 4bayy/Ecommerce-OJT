@@ -39,7 +39,11 @@ function ProductCard(props) {
                 />
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
-                    <p className="card-text">{props.description}</p>
+                    <h5>Price:</h5>
+                    {localStorage.token ? (
+                    <h5 className="card-text">{props.price}</h5>):
+                    (<h5 className="card-text" style={{ filter: 'blur(4px)'}}>{props.price}</h5>)}
+
                     <button
                         className="btn btn-warning btn-sm mt-2 me-2"
                         onClick={() => navigate(`/productsdetail/${props.id}`)}

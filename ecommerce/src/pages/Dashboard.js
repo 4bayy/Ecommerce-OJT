@@ -1,18 +1,15 @@
 import ProductCard from "../components/card/ProductCard";
 import "./dashboard.css";
 import Header from "../component/Header";
-import electronics from "../images/electronics.png";
-import jewelry from "../images/jewelry.png";
-import man from "../images/man.png";
-import women from "../images/woman.png";
 import { base_url } from "../Constants";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductDetail from "./productdetail/ProductDetail";
-import { ToastContainer, Toast, toast } from 'react-toastify';
+import { ToastContainer, Toast, toast } from "react-toastify";
 
 function Dashboard() {
   const [productdata, setProductData] = useState([]);
+  const [category, setCategory] = useState([]);
   const [filteredList, setFilteredList] = new useState(productdata);
 
   //add if else
@@ -22,13 +19,21 @@ function Dashboard() {
       .then((res) => {
         console.log(res.data);
         setProductData(res.data);
-        setFilteredList(res.data)
+        setFilteredList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(base_url + "products/categories")
+      .then((res) => {
+        console.log(res);
+        setCategory(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
 
   const filterSearch = (event) => {
     const query = event.target.value;
@@ -36,6 +41,10 @@ function Dashboard() {
       return item.title.toLowerCase().includes(query.toLowerCase());
     });
     setFilteredList(filteredData);
+    if(filteredList.length()=== 0){
+      return(
+      <h1>not found</h1>);
+    }
   };
 
   const getCategoryWise = (category) => {
@@ -46,19 +55,19 @@ function Dashboard() {
         setFilteredList(res.data);
       })
       .catch((err) => {
-        toast.error('something went wrong', {
-          position: 'top-right',
+        toast.error("something went wrong", {
+          position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
-          theme: 'light'
-      });
+          theme: "light",
+        });
       });
   };
   return (
     <div>
       <ToastContainer />
       <Header />
-      <div id="dashboard-home"  style={{ marginTop:"60px"}}>
+      <div id="dashboard-home" style={{ marginTop: "60px" }}>
         <div class="topnav">
           <input
             type="text"
@@ -68,65 +77,25 @@ function Dashboard() {
             onChange={filterSearch}
           />
         </div>
-        <div id="category-list">
-          <div id="category-container " style={{ display: "flex" }}>
-            {/* Need only one  and map */}
-            <div className="category-components " onClick={() => getCategoryWise("electronics")}>
-              <img
-                src={electronics}
-                style={{ width: "30px", marginLeft: "40px" }}
-                alt="imagehere"
-              ></img>
-              <h4
-                id="categories"
-                
+
+        <div id="category-list" style={{ display: "flex" }}>
+          {category.map((item, index) => (
+            <div id="category-container ">
+              <div
+                className="category-components "
+                onClick={() => getCategoryWise(`${item}`)}
               >
-                Electronics
-              </h4>
+                <h4 id="categories">{item}</h4>
+              </div>
             </div>
-            <div className="category-components " onClick={() => getCategoryWise("jewelery")}>
-              <img
-                src={jewelry}
-                alt="imagehere"
-                style={{ width: "30px", marginLeft: "40px" }}
-              ></img>
-              <h2 id="categories" >
-                Jewellery
-              </h2>
-            </div>
-            <div className="category-components" onClick={() => getCategoryWise("men's clothing")}>
-              <img
-                src={man}
-                alt="imagehere"
-                style={{ width: "30px", marginLeft: "60px" }}
-              ></img>
-              <h3
-                id="categories"
-                
-              >
-                Mens Clothing
-              </h3>
-            </div>
-            <div className="category-components"  onClick={() => getCategoryWise("women's clothing")}>
-              <img
-                src={women}
-                alt="imagehere"
-                style={{ width: "30px", marginLeft: "60px" }}
-              ></img>
-              <h4
-                id="categories"
-               
-              >
-                Women Clothing
-              </h4>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
       <div id="dashboard-card" style={{ maxWidth: "80%", margin: "0 auto" }}>
         {/* <h2 id="dashboard-heading" style={{textAlign:"center",margin:"50px"}}>New Arrivals 2023</h2> */}
-        {filteredList.map((i, idx) => (
-          <div  className="product-card-container">
+        {filteredList.length > 0 ? (filteredList.map((i, idx) => (
+          <div className="product-card-container">
             <ProductCard
               id={i.id}
               title={i.title}
@@ -136,8 +105,7 @@ function Dashboard() {
               rating={i.rating.rate}
             ></ProductCard>
           </div>
-
-        ))}
+        ))):(<h1 style={{ textAlign: "center", marginTop: "50px" }}>Not Found!</h1>)}
       </div>
     </div>
   );
