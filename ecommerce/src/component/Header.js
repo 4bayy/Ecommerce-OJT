@@ -4,6 +4,8 @@ import images from "../../src/images/images.jpg";
 import Login from "./LoginModal";
 import { useState } from "react";
 import AddProduct from "./AddProductModal";
+import { ToastContainer, Toast, toast } from "react-toastify";
+import { BsCart4} from 'react-icons/bs';
 import axios from "axios";
 import { BsFillCartFill } from "react-icons/bs";
 function Header() {
@@ -12,6 +14,13 @@ function Header() {
   const logOut = () => {
     console.log(localStorage.token);
     localStorage.clear();
+    toast.success("successfully logged out", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      theme: "light",
+    });
+    window.location.reload(false);
   };
   const checkLogin = () => {
     if (localStorage.token) {
@@ -22,6 +31,7 @@ function Header() {
   };
   return (
     <>
+    <ToastContainer />
       <Navbar bg="dark" variant="dark" fixed="top">
         <Container>
           <Navbar.Brand href="#home">
@@ -35,6 +45,7 @@ function Header() {
             />
           </Navbar.Brand>
           <Nav className="justify-content-end">
+          <Nav.Link onClick={() => checkLogin()}>Add product</Nav.Link>
             {localStorage.token ? (
               <div style ={{display:"flex"}}>
               <Nav.Link onClick= {()=> logOut()}>Logout</Nav.Link>
@@ -43,7 +54,7 @@ function Header() {
             ) : (
               <Nav.Link onClick={() => setShow(true)}>Login</Nav.Link>
             )}
-            <Nav.Link onClick={() => checkLogin()}>Add product</Nav.Link>
+            
           </Nav>
         </Container>
         <Login show={show} setShow={setShow} />
