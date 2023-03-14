@@ -60,7 +60,7 @@ function ProductCard(props) {
         </div> */}
             <div class="container ">
                 <div class="card ">
-                    <img src={props.image} alt="" onClick={checkLogin} />
+                    <img src={props.image} alt="" onClick={()=>navigate(`/productsdetail/${props.id}`)} />
                     <div class="card-body">
                         <div class="row">
                             <div class="card-title">
@@ -88,6 +88,7 @@ function ProductCard(props) {
                                 <a onClick={()=>checkLogin(props.item)}>
                                     ADD TO<i class="tf-ion-android-cart"></i>
                                 </a>
+                                <hr></hr>
                             </div>
                         </div>
                     </div>
