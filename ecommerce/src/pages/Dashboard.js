@@ -1,13 +1,12 @@
 import Header from '../component/Header';
 import ProductCard from '../components/card/ProductCard';
 import './dashboard.css';
-
 import { base_url } from '../Constants';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductDetail from './productdetail/ProductDetail';
-
 import { ToastContainer, Toast, toast } from 'react-toastify';
+
 function Shop() {
     const [productdata, setProductData] = useState([]);
     const [category, setCategory] = useState([]);
@@ -63,6 +62,7 @@ function Shop() {
                 });
             });
     };
+    console.log(filteredList);
     return (
         <div className="shop-container">
             <Header />
@@ -124,8 +124,7 @@ function Shop() {
                                                     aria-label="Shop order"
                                                 >
                                                     <option
-                                                        value=""
-                                                        selected="selected"
+                                                        value="-1"
                                                     >
                                                         Select Category
                                                     </option>
@@ -158,8 +157,9 @@ function Shop() {
                             <div class="row">
                                 {filteredList.length > 0 ? (
                                     filteredList.map((i, idx) => (
-                                        <div class="col-lg-3 col-10 col-md-7 col-sm-10 mb-5">
+                                        <div class="col-lg-5 mb-5">
                                             <ProductCard
+                                                item={i}
                                                 id={i.id}
                                                 title={i.title}
                                                 price={i.price}
