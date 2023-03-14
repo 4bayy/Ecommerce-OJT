@@ -18,18 +18,9 @@ function CartPage() {
                         <div class="product-details mr-2">
                             <div class="d-flex flex-row align-items-center">
                                 <i class="fa fa-long-arrow-left"></i>
-                                {/* <span class="ml-2">Continue Shopping</span> */}
                             </div>
                             <hr />
                             <div class="d-flex justify-content-between">
-                                {/* <span>You have 4 items in your cart</span> */}
-                                {/* <div class="d-flex flex-row align-items-center">
-                                    <span class="text-black-50">Sort by:</span>
-                                    <div class="price ml-2">
-                                        <span class="mr-1">price</span>
-                                        <i class="fa fa-angle-down"></i>
-                                    </div>
-                                </div> */}
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                                 <div class="d-flex flex-row">
@@ -43,9 +34,6 @@ function CartPage() {
                                         <span class="font-weight-bold d-block">
                                             {i.title}
                                         </span>
-                                        {/* <span class="spec">
-                                            256GB, Navy Blue
-                                        </span> */}
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center">
