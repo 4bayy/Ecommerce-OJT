@@ -29,37 +29,29 @@ function ProductCard(props) {
         }
     };
     return (
-            <div className="card">
-                <img
-                    className="card-img-top "
-                    src={props.image}
-                    alt="Cardimagecap"
-                    style={{ height: '100px',width:"100px",backgroundColor:"beige",
-                    marginLeft:"5rem",marginTop:"10px" }}
-                />
-                <div className="card-body">
-                    <h5 className="card-title">{props.title}</h5>
-                    <h5>Price:</h5>
-                    {localStorage.token ? (
+        <div class="product">
+        <div class="product-wrap">
+        <img class="img-fluid w-100 mb-3 img-first" src={props.image} alt="product-img" />
+        
+        </div>
+
+        <span class="onsale">Sale</span>
+        <div class="product-hover-overlay">
+        <a href="#"><i class="tf-ion-android-cart" onClick={checkLogin}></i></a>
+        <a onClick={() => navigate(`/productsdetail/${props.id}`)}><i class="tf-ion-ios-eye" ></i></a>
+            </div>
+
+        <div class="product-info">
+        <h2 class="product-title h5 mb-0"><a href="/product-single">{props.title}</a></h2>
+        Price:<span class="price">
+        {localStorage.token ? (
                     <h5 className="card-text">{props.price}</h5>):
                     (<h5 className="card-text" style={{ filter: 'blur(4px)'}}>{props.price}</h5>)}
-
-                    <button
-                        className="btn btn-warning btn-sm mt-2 me-2"
-                        onClick={() => navigate(`/productsdetail/${props.id}`)}
-                    >
-                        View
-                    </button>
-                    <button
-                        className="btn btn-primary btn-sm mt-2 me-2"
-                        onClick={checkLogin}
-                    >
-                        Add to Cart
-                    </button>
-                    <ToastContainer limit={1}></ToastContainer>
+        </span>
+        <ToastContainer limit={1}></ToastContainer>
                     <Login show={show} setShow={setShow} />
-                </div>
-            </div>
+        </div>
+    </div>
     );
 }
 export default ProductCard;
