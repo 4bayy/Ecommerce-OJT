@@ -18,7 +18,7 @@ function ProductCard(props) {
             progress: undefined,
             theme: 'light'
         });
-    const addToCart = (item) => {
+    const checkLogin = (item) => {
         console.log('add to cart cliked');
         if (localStorage.token) {
             notify();
@@ -29,47 +29,29 @@ function ProductCard(props) {
         }
     };
     return (
-        <div className="card">
-            <img
-                className="card-img-top "
-                src={props.image}
-                alt="Cardimagecap"
-                style={{
-                    height: '100px',
-                    width: '100px',
-                    backgroundColor: 'beige',
-                    marginLeft: '5rem',
-                    marginTop: '10px'
-                }}
-            />
-            <div className="card-body">
-                <h5 className="card-title">{props.title}</h5>
-                <h5>Price:</h5>
-                {localStorage.token ? (
-                    <h5 className="card-text">${props.price}</h5>
-                ) : (
-                    <h5 className="card-text" style={{ filter: 'blur(4px)' }}>
-                        ${props.price}
-                    </h5>
-                )}
-                <div className="ms-4 p-2">
-                    <button
-                        className="btn btn btn-warning flex-fill me-1 ps-4 pe-4"
-                        onClick={() => navigate(`/productsdetail/${props.id}`)}
-                    >
-                        View
-                    </button>
-                    <button
-                        className="btn btn btn-danger flex-fill ms-1"
-                        onClick={() => addToCart(props.id)}
-                    >
-                        Add to Cart
-                    </button>
-                </div>
-                <ToastContainer limit={1}></ToastContainer>
-                <Login show={show} setShow={setShow} />
-            </div>
+        <div class="product">
+        <div class="product-wrap">
+        <img class="img-fluid w-100 mb-3 img-first" src={props.image} alt="product-img" />
+        
         </div>
+
+        <span class="onsale">Sale</span>
+        <div class="product-hover-overlay">
+        <a href="#"><i class="tf-ion-android-cart" onClick={checkLogin}></i></a>
+        <a onClick={() => navigate(`/productsdetail/${props.id}`)}><i class="tf-ion-ios-eye" ></i></a>
+            </div>
+
+        <div class="product-info">
+        <h2 class="product-title h5 mb-0"><a href="/product-single">{props.title}</a></h2>
+        Price:<span class="price">
+        {localStorage.token ? (
+                    <h5 className="card-text">{props.price}</h5>):
+                    (<h5 className="card-text" style={{ filter: 'blur(4px)'}}>{props.price}</h5>)}
+        </span>
+        <ToastContainer limit={1}></ToastContainer>
+                    <Login show={show} setShow={setShow} />
+        </div>
+    </div>
     );
 }
 export default ProductCard;
