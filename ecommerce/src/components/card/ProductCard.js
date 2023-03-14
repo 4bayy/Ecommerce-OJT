@@ -5,7 +5,7 @@ import { ToastContainer, Toast, toast } from 'react-toastify';
 import Login from '../../component/LoginModal';
 import './productcard.css';
 import { Button } from 'react-bootstrap';
-import { addCart } from '../../redux/cartSlice';
+import { addCart } from '../../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 
 function ProductCard(props) {
