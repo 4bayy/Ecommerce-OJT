@@ -1,129 +1,70 @@
 import "./cartpage.css";
+import { useSelector } from "react-redux";
 
 function CartPage() {
+    const state=useSelector(state=>state.carts);
+    console.log(state.cartItems);
+
     return (
         <div>
             <div class="container mt-5 p-3 rounded cart">
                 <div class="row no-gutters">
                     <div class="col-md-8">
+                      {state.cartItems.length> 0 ? (
+                        state.cartItems.map((i,idx)=>(
                         <div class="product-details mr-2">
                             <div class="d-flex flex-row align-items-center">
                                 <i class="fa fa-long-arrow-left"></i>
-                                <span class="ml-2">Continue Shopping</span>
+                                {/* <span class="ml-2">Continue Shopping</span> */}
                             </div>
                             <hr />
-                            <h6 class="mb-0">Shopping cart</h6>
+                            {/* <h6 class="mb-0">Shopping cart</h6> */}
                             <div class="d-flex justify-content-between">
-                                <span>You have 4 items in your cart</span>
-                                <div class="d-flex flex-row align-items-center">
+                                {/* <span>You have 4 items in your cart</span> */}
+                                {/* <div class="d-flex flex-row align-items-center">
                                     <span class="text-black-50">Sort by:</span>
                                     <div class="price ml-2">
                                         <span class="mr-1">price</span>
                                         <i class="fa fa-angle-down"></i>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                                 <div class="d-flex flex-row">
                                     <img
                                         class="rounded"
-                                        src="https://i.imgur.com/QRwjbm5.jpg"
+                                        src={i.image}
                                         width="40"
                                         alt="imagehere"
                                     />
                                     <div class="ml-2">
                                         <span class="font-weight-bold d-block">
-                                            Iphone 11 pro
+                                            {i.title}
                                         </span>
-                                        <span class="spec">
+                                        {/* <span class="spec">
                                             256GB, Navy Blue
-                                        </span>
+                                        </span> */}
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center">
                                     <span class="d-block">2</span>
                                     <span class="d-block ml-5 font-weight-bold">
-                                        $900
-                                    </span>
-                                    <i class="fa fa-trash-o ml-3 text-black-50"></i>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                                <div class="d-flex flex-row">
-                                    <img
-                                        class="rounded"
-                                        src="https://i.imgur.com/GQnIUfs.jpg"
-                                        width="40"
-                                        alt="imagehere"
-                                    />
-                                    <div class="ml-2">
-                                        <span class="font-weight-bold d-block">
-                                            One pro 7T
-                                        </span>
-                                        <span class="spec">
-                                            256GB, Navy Blue
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center">
-                                    <span class="d-block">2</span>
-                                    <span class="d-block ml-5 font-weight-bold">
-                                        $900
-                                    </span>
-                                    <i class="fa fa-trash-o ml-3 text-black-50"></i>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                                <div class="d-flex flex-row">
-                                    <img
-                                        class="rounded"
-                                        src="https://i.imgur.com/o2fKskJ.jpg"
-                                        width="40"
-                                        alt="imagehere"
-                                    />
-                                    <div class="ml-2">
-                                        <span class="font-weight-bold d-block">
-                                            Google pixel 4 XL
-                                        </span>
-                                        <span class="spec">
-                                            256GB, Axe black
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center">
-                                    <span class="d-block">1</span>
-                                    <span class="d-block ml-5 font-weight-bold">
-                                        $800
-                                    </span>
-                                    <i class="fa fa-trash-o ml-3 text-black-50"></i>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                                <div class="d-flex flex-row">
-                                    <img
-                                        class="rounded"
-                                        src="https://i.imgur.com/Tja5H1c.jpg"
-                                        width="40"
-                                        alt="imagehere"
-                                    />
-                                    <div class="ml-2">
-                                        <span class="font-weight-bold d-block">
-                                            Samsung galaxy Note 10&nbsp;
-                                        </span>
-                                        <span class="spec">
-                                            256GB, Navy Blue
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center">
-                                    <span class="d-block">1</span>
-                                    <span class="d-block ml-5 font-weight-bold">
-                                        $999
+                                        ${i.price}
                                     </span>
                                     <i class="fa fa-trash-o ml-3 text-black-50"></i>
                                 </div>
                             </div>
                         </div>
+                               ))
+                      ): (
+                        <h1
+                            style={{
+                                textAlign: 'center',
+                                marginTop: '20px'
+                            }}
+                        >
+                            Do Some Shopping..😊
+                        </h1>)}
                     </div>
                     <div class="col-md-4">
                         <div class="payment-info">
@@ -248,14 +189,7 @@ function CartPage() {
                                 <span>Subtotal</span>
                                 <span>$3000.00</span>
                             </div>
-                            <div class="d-flex justify-content-between information">
-                                <span>Shipping</span>
-                                <span>$20.00</span>
-                            </div>
-                            <div class="d-flex justify-content-between information">
-                                <span>Total(Incl. taxes)</span>
-                                <span>$3020.00</span>
-                            </div>
+                           
                             <button
                                 class="btn btn-primary btn-block d-flex justify-content-between mt-3"
                                 type="button"

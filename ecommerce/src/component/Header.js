@@ -11,9 +11,13 @@ import { BsFillCartFill } from "react-icons/bs";
 import "jquery/dist/jquery.slim.min.js";
 import "popper.js/dist/umd/popper.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { useNavigate } from "react-router-dom";
+
 function Header() {
   const [show, setShow] = useState(false);
   const [showProduct, setShowProduct] = useState(false);
+  const navigate=useNavigate();
+
   const logOut = () => {
     console.log(localStorage.token);
     localStorage.clear();
@@ -45,7 +49,7 @@ function Header() {
             {localStorage.token ? (
               <div style ={{display:"flex"}}>
               <Nav.Link onClick= {()=> logOut()}>Logout</Nav.Link>
-              <Nav.Link ><BsFillCartFill></BsFillCartFill></Nav.Link>
+              <Nav.Link  onClick={()=>navigate(`/cartpage`)}><BsFillCartFill></BsFillCartFill></Nav.Link>
               </div>
             ) : (
               <Nav.Link onClick={() => setShow(true)}>Login</Nav.Link>
