@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter>;
     <Routes>
       <Route path="/" element={<Dashboard/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
