@@ -1,43 +1,44 @@
-
-#header-section
-{
+#header-section {
     background-color: antiquewhite;
 }
-#dashboard-home
-{
+#dashboard-home {
     /* height: 20vh; */
     /* margin-top: 10vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #2F3C7E;
+    /* background-color: #2F3C7E; */
+    background-color: white;
     padding: 10px;
 }
-#dashboard-card
+/* #category-container
 {
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 5px;
+} */
+#dashboard-card {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.topnav
-{
+.topnav {
     width: 100%;
 }
-#category-list
-{
-    background-color:#FBEAEB;
-   
+#category-list {
+    background-color: #fbeaeb;
+    width: 90vw;
     border-radius: 10px;
     padding: 20px;
+    padding-left: 20vw;
 }
 /* .search-btn  
 {
     width: 20px;
     height: 30px;
 } */
-#categories
-{
+#categories {
     /* display: inline; */
     font-size: 20px;
     color: black;
@@ -47,26 +48,21 @@
 
     /* align-items: center; */
 }
-#categories:hover
-{
+#categories:hover {
     cursor: pointer;
     /* color: red; */
 }
-#cards
-{
+#cards {
     margin-top: 10px;
 }
 
-  .category-components:hover {
+.category-components:hover {
     top: -10px;
     left: -10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-   
-    
-  }
-  
-  
-  /* #dashboard-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* #dashboard-card {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -80,32 +76,92 @@
     flex: 0 0 calc(33.33% - 20px);
     min-width: 200px;
     margin: 10px;
-  }
-#dashboard-heading
-{
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-      font-size: 100px;
+    margin-top: 10vh;
 }
+#dashboard-heading {
+    text-transform: uppercase;
+    background-image: linear-gradient(
+        -225deg,
+        #231557 0%,
+        #44107a 29%,
+        #ff1361 67%,
+        #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 50px;
+}
+/* Category Css. */
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
 
+
+.box {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: 8vw;
+}
+.our-services {
+    margin-top: 75px;
+    padding-bottom: 30px;
+    padding: 0 60px;
+    min-height: 198px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 25px 0 rgba(20, 27, 202, 0.17);
+}
+.our-services .icon {
+    margin-bottom: -21px;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.our-services:hover h4,
+.our-services:hover p {
+    color: #fff;
+}
+.speedup:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, 0.05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fb0054 0%, #f55b2a 100%);
+}
+.settings:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, 0.05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #34b5bf 0%, #210c59 100%);
+}
+.privacy:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, 0.05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #3615e7 0%, #44a2f6 100%);
+}
+.backups:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, 0.05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fc6a0e 0%, #fdb642 100%);
+}
+.ssl:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, 0.05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #8d40fb 0%, #5a57fb 100%);
+}
+.database:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, 0.05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #27b88d 0%, #22dd73 100%);
+}
 @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+    to {
+        background-position: 200% center;
+    }
 }

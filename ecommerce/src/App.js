@@ -9,11 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter>;
     <Routes>
       <Route path="/" element={<Dashboard/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
-      <Route path="/cartpage" element={<CartPage/>}></Route>
+      <Route path="/cartpage:id" element={<CartPage/>}></Route>
       <Route path="/productsdetail/:id" element={<ProductDetail/>}></Route>
      </Routes>
     </BrowserRouter>
