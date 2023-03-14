@@ -1,5 +1,5 @@
-    import Header from '../component/Header';
-    import ProductCard from "../components/card/ProductCard";
+import Header from '../component/Header';
+import ProductCard from "../components/card/ProductCard";
 import "./dashboard.css";
 
 import { base_url } from "../Constants";
