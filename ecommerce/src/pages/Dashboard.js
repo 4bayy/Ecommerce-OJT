@@ -88,7 +88,7 @@ function Shop() {
                     </div>
                 </div>
             </section>
-            <div class="topnav">
+            <div class="topnav mt-4">
                 <input
                     type="text"
                     placeholder="Search jewelleries,watches,bags,tops..."
