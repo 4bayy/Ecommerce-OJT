@@ -5,7 +5,7 @@ import { ToastContainer, Toast, toast } from 'react-toastify';
 import Login from '../../component/LoginModal';
 import './productcard.css';
 import { Button } from 'react-bootstrap';
-import { addCart } from '../../redux/cartSlice';
+import { addCart } from '../../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 
 function ProductCard(props) {
@@ -65,7 +65,7 @@ function ProductCard(props) {
                         <div class="btn-group">
                             <div class="btn ">
                                 <a onClick={()=>checkLogin(props.item)}>
-                                    ADD TO<i class="tf-ion-android-cart"></i>
+                                    ADD TO <i class="tf-ion-android-cart"></i>
                                 </a>
                                 <hr></hr>
                             </div>
