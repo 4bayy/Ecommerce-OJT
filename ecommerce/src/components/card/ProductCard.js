@@ -65,7 +65,7 @@ function ProductCard(props) {
                         <div class="btn-group">
                             <div class="btn ">
                                 <a onClick={()=>checkLogin(props.item)}>
-                                    ADD TO<i class="tf-ion-android-cart"></i>
+                                    ADD TO <i class="tf-ion-android-cart"></i>
                                 </a>
                                 <hr></hr>
                             </div>
