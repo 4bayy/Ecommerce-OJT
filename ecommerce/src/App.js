@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductDetail from "./pages/productdetail/ProductDetail";
 import Login from "./component/LoginModal";
 import CartPage from "./pages/cart/CartPage";
+import WishList from "./pages/WishList";
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<Dashboard/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/cartpage" element={<CartPage/>}></Route>
+      <Route path="/wishlist" element={<WishList/>}></Route>
       <Route path="/productsdetail/:id" element={<ProductDetail/>}></Route>
      </Routes>
     </BrowserRouter>
