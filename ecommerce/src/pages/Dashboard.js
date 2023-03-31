@@ -6,12 +6,25 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductDetail from './productdetail/ProductDetail';
 import { ToastContainer, Toast, toast } from 'react-toastify';
+import Carousel from 'react-bootstrap/Carousel';
+import { useDispatch } from 'react-redux';
+import {BsFillHeartFill} from 'react-icons/bs'
+import img1 from "./../images/img1.png"
+import img2 from "./../images/img2.png"
+import img3 from "./../images/img3.png"
+import img4 from "./../images/img4.png"
+import { addWishlist } from '../redux/CartSlice'
+import { useSelector } from 'react-redux';
+import {removeWishlist} from '../redux/CartSlice';
+import { useLocation } from 'react-router-dom';
+
 
 function Shop() {
     const [productdata, setProductData] = useState([]);
     const [category, setCategory] = useState([]);
     const [filteredList, setFilteredList] = new useState(productdata);
-
+    const state = useSelector((state) => state.carts);
+    
     //add if else
     useEffect(() => {
         axios
@@ -34,6 +47,11 @@ function Shop() {
                 console.log(err);
             });
     }, []);
+    const [show, setShow] = useState(false);
+    const dispatch =useDispatch()
+   
+    
+        
 
     const filterSearch = (event) => {
         const query = event.target.value;
@@ -62,32 +80,65 @@ function Shop() {
                 });
             });
     };
+    
     console.log(filteredList);
     return (
         <div className="shop-container">
             <Header />
-            <section class="page-header">
-                <div class="overly"></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6">
-                            <div class="content text-center">
-                                <h1 class="mb-3">Shop</h1>
-                                <p>
-                                    "What you wear is how you present yourself
-                                    to the world, especially today, when human
-                                    contacts are so quick. Fashion is instant
-                                    language."
-                                </p>
-
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb bg-transparent justify-content-center"></ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div style={{paddingTop:"5px"}}>
+            <Carousel variant="dark">
+            <Carousel.Item>
+            <img
+          className="d-block w-100"
+          width={200} height={300}
+          src={img1}
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h5> </h5>
+          <p> </p>
+        </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+            
+        <img
+          className="d-block w-100"
+          width={200} height={300}
+          src={img2}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h5> </h5>
+          <p> </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+     
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          width={200} height={300}
+          src={img3}
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h5> </h5>
+          <p> </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item >
+            <img
+          className="d-block w-100"
+          width={200} height={300}
+          src={img4}
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h5> </h5>
+          <p> </p>
+        </Carousel.Caption>
+            </Carousel.Item>
+            </Carousel>
+            </div>
             <div class="topnav mt-4">
                 <input
                     type="text"
@@ -101,14 +152,13 @@ function Shop() {
             <section class="products-shop section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div >
                             <div class="row align-items-center">
                                 <div class="col-lg-12 mb-4 mb-lg-0">
                                     <div class="section-title">
                                         <h2 class="d-block text-left-sm">
                                             Shop
                                         </h2>
-
                                         <div class="heading d-flex justify-content-between mb-5">
                                             <p class="result-count mb-0">
                                                 {' '}
@@ -157,7 +207,8 @@ function Shop() {
                             <div class="row">
                                 {filteredList.length > 0 ? (
                                     filteredList.map((i, idx) => (
-                                        <div class="col-lg-5 mb-5">
+                                        <div class="col-lg-4 mb-8"  >
+                                            
                                             <ProductCard
                                                 item={i}
                                                 id={i.id}
@@ -167,6 +218,8 @@ function Shop() {
                                                 image={i.image}
                                                 rating={i.rating.rate}
                                             ></ProductCard>
+                                           
+                                          
                                         </div>
                                     ))
                                 ) : (
@@ -181,9 +234,7 @@ function Shop() {
                                 )}
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <form class="mb-5"></form>
-                        </div>
+                       
                     </div>
                 </div>
             </section>

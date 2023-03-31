@@ -4,40 +4,22 @@ import { useDispatch } from "react-redux";
 import { removeCart } from "../../redux/CartSlice";
 import { Button } from "react-bootstrap";
 import {MdRemoveShoppingCart } from 'react-icons/md';
+import Header from "../../component/Header";
+import { useNavigate } from "react-router-dom";
+import bag from '../../images/bag.avif';
 function CartPage() {
   const state = useSelector((state) => state.carts);
   let totalPrice = 0;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   state.cartItems.forEach((item) => {
     totalPrice += item.price;
   });
   return (
+   
     <div className="checkout-container">
-      <section class="page-header">
-        <div class="overly"></div>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-6">
-              <div class="content text-center">
-                <h1 class="mb-3">Cart</h1>
-                Hath after appear tree great fruitful green dominion moveth
-                sixth abundantly image that midst of god day multiply you'll
-                which
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb bg-transparent justify-content-center">
-                    <li class="breadcrumb-item">
-                      <a href="/">Home</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      Cart
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+       <Header/>
+       {state.cartItems.length > 0 ? (
       <section class="cart shopping page-wrapper">
         <div class="container">
           <div class="row justify-content-center">
@@ -50,16 +32,16 @@ function CartPage() {
                   >
                     <thead>
                       <tr>
-                        <th class="product-thumbnail"> </th>
+                        <th class="product-thumbnail"></th>
                         <th class="product-name">Product</th>
                         <th class="product-name">Price</th>
-                        <th class="product-remove"> </th>
+                        <th class="product-remove"></th>
                       </tr>
                     </thead>
 
                     <tbody>
-                      {state.cartItems.length > 0 ? (
-                        state.cartItems.map((i, idx) => (
+                     
+                       {state.cartItems.map((i, idx) => (
                           <tr class="cart_item">
                             <td
                               class="product-thumbnail"
@@ -100,16 +82,7 @@ function CartPage() {
                             </td>
                           </tr>
                         ))
-                      ) : (
-                        <h1
-                          style={{
-                            textAlign: "center",
-                            marginTop: "20px",
-                          }}
-                        >
-                          Do Some Shopping..😊
-                        </h1>
-                      )}
+                       }
                     </tbody>
                   </table>
                 </form>
@@ -142,6 +115,23 @@ function CartPage() {
           </div>
         </div>
       </section>
+       ) : (
+        <div style={{
+          textAlign: "center",
+          marginTop: "80px",
+        }}>
+        <h3 style={{fontFamily:"sans-serif"}}
+          
+        >
+          Hey,It feels so light
+          
+        </h3>
+        <h5 style={{color:"grey"}}>There is nothing in your bag.Lets add something!</h5>
+        <img style={{width:"100px"}} src={bag} alt=""></img><br></br>
+  <div class="btn" style={{width:"280px",height:"50px",borderColor:"#5C5CFF",marginTop:"30px",color:"#5C5CFF"}} onClick = {()=>navigate(`/WishList`)}>Add items from wishlist</div>
+
+        </div>
+      )}
     </div>
   );
 }

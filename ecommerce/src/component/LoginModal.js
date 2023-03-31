@@ -7,6 +7,7 @@ import { base_url } from '../Constants';
 import { ToastContainer, Toast, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 const loginSchema = Yup.object().shape({
   username: Yup.string().required('Username is required'),
@@ -20,9 +21,11 @@ function Login({ show, setShow }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
+    const navigate = useNavigate();
   
     const handleSubmit = async (event) => {
       event.preventDefault();
+      navigate("/");
   
       try {
         await loginSchema.validate({ username, password });
