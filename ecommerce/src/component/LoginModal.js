@@ -30,7 +30,7 @@ function Login({ show, setShow }) {
       try {
         await loginSchema.validate({ username, password });
         axios
-          .post(base_url + 'auth/login', {
+          .post('https://fakestoreapi.com/auth/login', {
             username: username,
             password: password,
           })

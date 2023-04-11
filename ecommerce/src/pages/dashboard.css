@@ -12,17 +12,37 @@
     background-color: white;
     padding: 10px;
 }
-/* #category-container
+.product-home-brandsec
 {
-  background-color: #fff;
-  margin: 20px;
-  border-radius: 5px;
-} */
+    padding: 30px;
+    /* background-color: "black"; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
 #dashboard-card {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.product-home-brandsec-card {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+ .producthome-category
+ {
+    /* /* padding-left: 20px; */
+    padding-right: 30px; 
+    justify-content: space-between;
+ }
+  
+  /* Clearfix (clear floats) */
+  .product-home-brandsec-div::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 .topnav {
     width: 100%;
 }
